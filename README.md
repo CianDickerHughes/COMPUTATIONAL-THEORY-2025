@@ -50,6 +50,8 @@ The consolidated notebook is self-contained; cells define required functions bef
 - **Problem 4:** Implement `hash(current, block)` to perform one SHA-256 compression step.
 - **Problem 5:** Recover plaintexts for given SHA-256 hashes and discuss stronger password hashing (salting, key stretching/KDFs like PBKDF2, scrypt, Argon2, throttling).
 
+problems [assessment/problems.md](assessment/problems.md).
+
 ## Reference
 - Secure Hash Standard (FIPS 180-4): https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
 
