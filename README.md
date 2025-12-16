@@ -1,45 +1,58 @@
 # COMPUTATIONAL-THEORY-2025
-## Assessment Problem
-### Problem 1
-Implement the following functions in Python. Use numpy to ensure that all variables and values are treated as 32-bit integers. These functions are defined in the Secure Hash Standard
-* `Parity(x, y, z)`
-* `Ch(x, y, z)`
-* `Maj(x, y, z)`
-* `Sigma0(x)` - written as $\Sigma_0^{\{256\}}(x)$ in the standard.
-* `Sigma1(x)` - written as $\Sigma_1^{\{256\}}(x)$ in the standard.
-* `sigma0(x)` - written as $\sigma_0^{\{256\}}(x)$ in the standard.
-* `sigma1(x)` - written as $\sigma_1^{\{256\}}(x)$ in the standard.
 
-### Problem 2
-Use numpy to calculate the constants listed at the bottom of page 11 of the Secure Hash Standard, following the steps below.
-These are the first 32 bits of the fractional parts of the cube roots of the first 64 prime numbers.
+SHA-256–focused notebook exercises aligned with FIPS 180-4. Written for an informed computing professional (e.g., a prospective employer) who expects minimal setup to run and review the work.
 
-* Write a function called `primes(n)` that generates the first n prime numbers.
+## Repository Layout
+- `Problems.ipynb` — Single consolidated notebook containing Problems 1–5:
+	- SHA-256 primitives: Parity, Ch, Maj, Σ/σ functions (32-bit NumPy operations)
+	- Prime generation and derivation of SHA-256 K constants (fractional cube-root bits) with FIPS verification
+	- `block_parse(msg)` generator (padding + 512-bit block parsing)
+	- `hash(current, block)` per SHA-256 compression (section 6.2.2)
+	- Password-hash exploration and hardening discussion
 
-* Use the function to calculate the cube root of the first 64 primes.
+## Prerequisites
+- Python 3.10+ (tested on 3.11+)
+- `pip`
+- Recommended: virtual environment (`python -m venv .venv`)
 
-* For each cube root, extract the first thirty-two bits of the fractional part.
+## Quick Setup
+```bash
+git clone https://github.com/CianDickerHughes/COMPUTATIONAL-THEORY-2025.git
+cd COMPUTATIONAL-THEORY-2025
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+python -m pip install -U pip
+python -m pip install numpy jupyter
+```
 
-* Display the result in hexadecimal.
+## Running the Notebooks
+**VS Code (recommended):**
+1) Open the folder in VS Code.
+2) Choose the `.venv` Python interpreter if prompted.
+3) Open `Problems.ipynb` and run cells sequentially.
 
-* Test the results against what is in the Secure Hash Standard.
+**Jupyter CLI:**
+```bash
+jupyter lab    # or: jupyter notebook
+# Open Problems.ipynb and run all cells
+```
 
-### Problem 3
-Write a [generator function](https://realpython.com/introduction-to-python-generators/) `block_parse(msg)` that processes messages according to section 5.1.1 and 5.2.1 of the Secure Hash Standard.
-The function should accept a [bytes object](https://realpython.com/python-bytes/) called `msg`.
-At each iteration, it should yield the next 512-bit block of `msg` as a bytes object.
-Ensure that the final block (or final two blocks) include the required padding of `msg` as specified in the standard.
-Test the generator with messages of different lengths to confirm proper padding and block output.
+The consolidated notebook is self-contained; cells define required functions before they are used.
 
-### Problem 4
-Write a function `hash(current, block)` that calculates the next hash value given the `current` hash value and the next message `block` according to section *6.2.2 SHA-256 Hash Computation* on page 22 of the Secure Hash Standard.
+## Notes on Data and Reproducibility
+- No large data files are required or stored in the repo.
+- All computations are deterministic and rely only on NumPy.
 
-### Problem 5
-The following are the SHA-256 hashes of three common passwords that have been hashed using one pass of the SHA-256 algorithm.
-As strings, they were encoded using [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
-Determine the passwords and explain how you found them.
-Suggest ways in which the hashing of passwords could be improved to prevent the kind of attack you performed to find the passwords.
+## Problem Highlights
+- **Problem 1:** Implement SHA-256 primitives (`Parity`, `Ch`, `Maj`, `Sigma0`, `Sigma1`, `sigma0`, `sigma1`) with 32-bit ops.
+- **Problem 2:** Generate first 64 primes; compute cube-root fractional parts; extract 32-bit words; format as hex; verify against FIPS K constants.
+- **Problem 3:** Implement `block_parse(msg)` to apply SHA-256 padding and emit 512-bit blocks per sections 5.1.1 and 5.2.1.
+- **Problem 4:** Implement `hash(current, block)` to perform one SHA-256 compression step.
+- **Problem 5:** Recover plaintexts for given SHA-256 hashes and discuss stronger password hashing (salting, key stretching/KDFs like PBKDF2, scrypt, Argon2, throttling).
 
-* `5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8`
-* `873ac9ffea4dd04fa719e8920cd6938f0c23cd678af330939cff53c3d2855f34`
-* `b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342`
+## Reference
+- Secure Hash Standard (FIPS 180-4): https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
+
+## Troubleshooting
+- If VS Code cannot find the kernel, ensure the `.venv` interpreter is selected and run `python -m pip install jupyter` inside the environment.
+- If NumPy import fails, reinstall: `python -m pip install --force-reinstall numpy`.
