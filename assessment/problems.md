@@ -1,10 +1,7 @@
 
 # Assessment Problems
 
-Follow the [assessment instructions](assessment.md) and [guidance](guidance.ipynb) closely to ensure you solve the following problems correctly.
-
-The following five problems focus on different aspects of the [Secure Hash Standard](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf). \
-A copy of the standard is [available in the materials folder](../materials/secure-hash-standard.pdf).
+The following five problems focus on different aspects of the [Secure Hash Standard](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf). 
 
 ## Problem 1: Binary Words and Operations
 
