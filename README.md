@@ -64,10 +64,14 @@ problems [assessment/problems.md](assessment/problems.md).
 
 ## Reference
 - Secure Hash Standard (FIPS 180-4): https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
-- UTF-8 (Unicode Transformation Format – 8-bit) https://en.wikipedia.org/wiki/UTF-8
-- Bytes Objects (immutable bytes) https://realpython.com/python-bytes/
-- Generators (on-demand iteration) https://realpython.com/introduction-to-python-generators/
+- UTF-8: https://en.wikipedia.org/wiki/UTF-8
+- Bytes Objects: https://realpython.com/python-bytes/
+- Generators: https://realpython.com/introduction-to-python-generators/
 - OWASP Password Storage Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
+- Prime numbers: https://www.geeksforgeeks.org/python/python-program-to-print-all-prime-numbers-in-an-interval/
+- NumPy Bitwise Operations: https://numpy.org/doc/stable/reference/routines.bitwise.html
+- BCrypt: https://pypi.org/project/bcrypt/
+- Argon2 (NIST-recommended KDF): https://github.com/P-H-C/phc-winner-argon2
 
 ## Troubleshooting
 - If VS Code cannot find the kernel, ensure the `.venv` interpreter is selected and run `python -m pip install jupyter` inside the environment.
