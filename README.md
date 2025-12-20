@@ -3,12 +3,9 @@
 SHA-256–focused notebook exercises aligned with FIPS 180-4. Written for an informed computing professional (e.g., a prospective employer) who expects minimal setup to run and review the work.
 
 ## Repository Layout
-- `Problems.ipynb` — Single consolidated notebook containing Problems 1–5:
-	- SHA-256 primitives: Parity, Ch, Maj, Σ/σ functions (32-bit NumPy operations)
-	- Prime generation and derivation of SHA-256 K constants (fractional cube-root bits) with FIPS verification
-	- `block_parse(msg)` generator (padding + 512-bit block parsing)
-	- `hash(current, block)` per SHA-256 compression (section 6.2.2)
-	- Password-hash exploration and hardening discussion
+- `problems/` — directory containing separate notebooks for each problem (problem1.ipynb … problem5.ipynb).
+	- Each notebook is self-contained: helper functions for that problem are defined in cells at the top of the notebook where appropriate.
+- Problem notebooks correspond to the sections previously combined in `Problems.ipynb` (SHA-256 primitives, K-constants, padding/parse, compression, passwords).
 
 ## Prerequisites
 - Python 3.10+ (tested on 3.11+)
@@ -27,14 +24,27 @@ python -m pip install numpy jupyter
 
 ## Running the Notebooks
 **VS Code (recommended):**
-1) Open the folder in VS Code.
-2) Choose the `.venv` Python interpreter if prompted.
-3) Open `Problems.ipynb` and run cells sequentially.
+1) Open the folder in VS Code and select the `.venv` interpreter if prompted.
+2) Open the notebook you want to run from the `problems/` folder (for example `problems/problem3.ipynb`).
+3) To run only what's needed for a single problem: run the notebook's top helper cells (they define the functions used by later cells) then run the specific cells you want to evaluate. Use the editor buttons `Run Cell`, `Run Above`, or `Run Below` to limit execution.
+
+**Jupyter CLI / Lab:**
+```bash
+jupyter lab    # or: jupyter notebook
+# Open the desired file under problems/ (e.g. problems/problem2.ipynb)
+```
+- In Jupyter you can run individual cells or `Run > Run All Above` to execute helper definitions first, then run only the example/test cells for that problem.
+
+Notes:
+- Each problem notebook places its helper functions near the top so you can execute just those cells before running demonstrations or tests; you do not need to run all problems to inspect or run a single one.
+- If you prefer automation, open the notebook and use `Kernel → Restart & Run All` to run the whole notebook end-to-end.
+
+All-in-one notebook (root): If you want to see every problem run together, open `problems.ipynb` at the repository root (consolidated). It contains all helper functions and example/test cells; use `Kernel → Restart & Run All` to execute the full end-to-end workflow.
 
 **Jupyter CLI:**
 ```bash
 jupyter lab    # or: jupyter notebook
-# Open Problems.ipynb and run all cells
+# Open problems.ipynb (repository root) and run all cells
 ```
 
 The consolidated notebook is self-contained; cells define required functions before they are used.
