@@ -54,6 +54,9 @@ problems [assessment/problems.md](assessment/problems.md).
 
 ## Reference
 - Secure Hash Standard (FIPS 180-4): https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
+- UTF-8 (Unicode Transformation Format – 8-bit) https://en.wikipedia.org/wiki/UTF-8
+- Bytes Objects (immutable bytes) https://realpython.com/python-bytes/
+- Generators (on-demand iteration) https://realpython.com/introduction-to-python-generators/
 
 ## Troubleshooting
 - If VS Code cannot find the kernel, ensure the `.venv` interpreter is selected and run `python -m pip install jupyter` inside the environment.
