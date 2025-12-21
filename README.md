@@ -76,3 +76,5 @@ problems [assessment/problems.md](assessment/problems.md).
 ## Troubleshooting
 - If VS Code cannot find the kernel, ensure the `.venv` interpreter is selected and run `python -m pip install jupyter` inside the environment.
 - If NumPy import fails, reinstall: `python -m pip install --force-reinstall numpy`.
+
+# END
